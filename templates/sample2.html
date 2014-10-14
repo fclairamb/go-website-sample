@@ -1,0 +1,21 @@
+{{define "content"}}
+	{{range .Persons}}
+		<h3>{{.Name}} - {{.Age}} years old</h3> 
+		{{with .Emails}}
+			<u>Emails:</u>
+			<ul>
+				{{range .}}
+				<li>{{.}}</li>
+				{{end}}
+			</ul>
+		{{end}}
+		{{with .Jobs}}
+			<u>Jobs:</u>
+			<ul>
+				{{range .}}
+				<li>{{.Year}} - Employer: {{.Employer}}, role: {{.Role}}</li>
+				{{end}}
+			</ul>
+		{{end}}
+	{{end}}
+{{end}}

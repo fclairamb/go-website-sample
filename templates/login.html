@@ -1,0 +1,27 @@
+{{define "content"}}
+
+{{ if .Session.Authenticated }}
+	{{ if .JustAuthenticated }}
+	<div class="alert alert-success">
+		<strong>OK !</strong>
+		You are logged in!
+	</div>
+	{{ else }}
+	<div class="alert alert-warning">
+		<strong>Already identified !</strong>
+		You are already logged in !
+	</div>
+	{{ end }}
+{{ else }}
+<form class="form-signin" role="form" method="post">
+	<h2 class="form-signin-heading">Login</h2>
+	<input name="username" type="text" class="form-control" placeholder="Username" required="" autofocus="">
+	<input name="password" type="password" class="form-control" placeholder="Password" required="">
+	<label class="checkbox">
+		<input name="remember" type="checkbox" value="true" id="remember"> Remember me
+	</label>
+	<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+</form>
+{{ end }}
+
+{{end}}
